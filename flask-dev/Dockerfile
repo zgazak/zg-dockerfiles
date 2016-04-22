@@ -47,9 +47,16 @@ RUN pip3 install pdb sqlalchemy_utils google-api-python-client \
     pandas numpy sqlalchemy
 
 RUN apt-get install -yq --no-install-recommends \
-    python-psycopg2 \
     uwsgi-core \
     uwsgi-plugin-python
+
+
+RUN apt-get update \
+    && apt-get install -y libpq-dev \
+    && apt-get install -y python-openssl \
+    && apt-get install -y libffi-dev
+
+RUN pip3 install psycopg2
 
 USER root
 
