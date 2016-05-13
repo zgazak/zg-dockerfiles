@@ -1,7 +1,7 @@
-# 
-# ubuntu machine w python3 and flask with capability 
-# to launch web browser 
-# for web development.  
+#
+# ubuntu machine w python3 and flask with capability
+# to launch web browser
+# for web development.
 #
 
 FROM ubuntu:14.04
@@ -56,11 +56,10 @@ RUN apt-get update \
     && apt-get install -y python-openssl \
     && apt-get install -y libffi-dev
 
-RUN pip3 install psycopg2
+RUN pip3 install psycopg2 WTForms-Alchemy Flask-WTF WTForms
 
 USER root
 
 # Configure container startup as root
 EXPOSE 5000
 ENV PYTHONPATH=/usr/local/bin/
-
