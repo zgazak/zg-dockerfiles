@@ -58,8 +58,11 @@ RUN apt-get update \
 
 RUN pip3 install psycopg2 WTForms-Alchemy Flask-WTF WTForms
 
+RUN pip3 install python-instagram
+
 USER root
 
 # Configure container startup as root
 EXPOSE 5000
+EXPOSE 8000
 ENV PYTHONPATH=/usr/local/bin/
