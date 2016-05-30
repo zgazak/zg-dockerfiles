@@ -46,10 +46,10 @@ RUN pip3 install pdb sqlalchemy_utils google-api-python-client \
     requests-oauthlib bleach six lxml \
     pandas numpy sqlalchemy
 
+
 RUN apt-get install -yq --no-install-recommends \
     uwsgi-core \
     uwsgi-plugin-python
-
 
 RUN apt-get update \
     && apt-get install -y libpq-dev \
@@ -57,8 +57,8 @@ RUN apt-get update \
     && apt-get install -y libffi-dev
 
 RUN pip3 install psycopg2 WTForms-Alchemy Flask-WTF WTForms
-
-RUN pip3 install python-instagram
+RUN pip3 install git+https://github.com/zgazak/python-instagram
+RUN pip3 install pygal
 
 USER root
 
