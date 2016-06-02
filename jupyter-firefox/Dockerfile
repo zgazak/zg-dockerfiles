@@ -37,12 +37,12 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
 #    locale-gen
 ## fix issues with firefox location
 RUN apt-get purge locales -y \
-    && apt-get install -y locales \ 
+    && apt-get install -y locales \
     && locale-gen  en_US.UTF-8 \
     && locale-gen  en en_US  en_US.UTF-8 \
-    && dpkg-reconfigure locales 
+    && dpkg-reconfigure locales
 
-## fix dbus issue 
+## fix dbus issue
 RUN dbus-uuidgen > /var/lib/dbus/machine-id
 
 # Install Tini
@@ -76,8 +76,8 @@ RUN mkdir /home/$NB_USER/work && \
 # Install conda as jovyan
 RUN mkdir -p $CONDA_DIR \
     && wget http://repo.continuum.io/miniconda/Miniconda3-3.19.0-Linux-x86_64.sh -P /tmp \
-    && echo "9ea57c0fdf481acf89d816184f969b04bc44dea27b258c4e86b1e3a25ff26aa0 /tmp/Miniconda3-3.19.0-Linux-x86_64.sh" | sha256sum -c - \ 
-    && /bin/bash /tmp/Miniconda3-3.19.0-Linux-x86_64.sh -f -b -p $CONDA_DIR \ 
+    && echo "9ea57c0fdf481acf89d816184f969b04bc44dea27b258c4e86b1e3a25ff26aa0 /tmp/Miniconda3-3.19.0-Linux-x86_64.sh" | sha256sum -c - \
+    && /bin/bash /tmp/Miniconda3-3.19.0-Linux-x86_64.sh -f -b -p $CONDA_DIR \
     && rm /tmp/Miniconda3-3.19.0-Linux-x86_64.sh \
     && $CONDA_DIR/bin/conda install --yes conda==3.19.1
 
@@ -99,6 +99,8 @@ RUN pip install --upgrade pip
 RUN pip install pdb sqlalchemy_utils google-api-python-client \
     gspread flask Flask-Login Flask-SQLAlchemy==1.0 \
     requests-oauthlib bleach six lxml
+
+RUN pip install WTForms-Alchemy Flask-WTF WTForms 
 
 USER root
 
