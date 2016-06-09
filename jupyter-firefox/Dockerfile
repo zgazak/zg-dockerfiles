@@ -102,6 +102,8 @@ RUN pip install pdb sqlalchemy_utils google-api-python-client \
 
 RUN pip install WTForms-Alchemy Flask-WTF WTForms 
 
+RUN pip install sqlalchemy-defaults
+
 USER root
 
 # Configure container startup as root
