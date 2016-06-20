@@ -100,9 +100,11 @@ RUN pip install pdb sqlalchemy_utils google-api-python-client \
     gspread flask Flask-Login Flask-SQLAlchemy==1.0 \
     requests-oauthlib bleach six lxml
 
-RUN pip install WTForms-Alchemy Flask-WTF WTForms 
+RUN pip install WTForms-Alchemy Flask-WTF WTForms
 
 RUN pip install sqlalchemy-defaults
+
+RUN pip install seaborn
 
 USER root
 
