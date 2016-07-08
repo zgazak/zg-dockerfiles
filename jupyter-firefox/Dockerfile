@@ -106,6 +106,9 @@ RUN pip install sqlalchemy-defaults
 
 RUN pip install seaborn
 
+RUN pip install boto
+
+
 USER root
 
 # Configure container startup as root
