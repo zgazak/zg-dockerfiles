@@ -110,8 +110,6 @@ RUN pip install boto
 
 RUN pip install lda gensim nltk
 
-RUN python -m nltk.downloader all
-
 USER root
 
 # Configure container startup as root
