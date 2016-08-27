@@ -108,6 +108,8 @@ RUN pip install seaborn
 
 RUN pip install boto
 
+RUN pip install lda
+
 
 USER root
 
